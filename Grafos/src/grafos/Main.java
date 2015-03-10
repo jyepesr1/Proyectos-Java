@@ -18,6 +18,9 @@ public class Main {
         
         Scanner sc= new Scanner(System.in);
         
+        System.out.println("Su Grafo es dirigido o NO dirigido, S o N");
+        String dirigido = sc.nextLine();
+        
         System.out.println("Ingrese el número de Nodos:");
         int numNodos = sc.nextInt();
         
@@ -31,11 +34,21 @@ public class Main {
             System.out.println(cade);
         }
         
-        System.out.println("Ingrese las conexiones de los nodos, así A B");
-        for (int i = 0; i < numAristas; i++) {
-            String relacion = sc.nextLine();
-            grafo.crearEnlaces(relacion.substring(0,1), relacion.substring(2,3));
+        if(dirigido.equals("S")){
+            System.out.println("Ingrese las conexiones de los nodos, así A B");
+            for (int i = 0; i < numAristas; i++) {
+                String relacion = sc.nextLine();
+                grafo.crearEnlaces(relacion.substring(0,1), relacion.substring(2,3));
+            }
+        }else{
+            System.out.println("Ingrese las conexiones de los nodos, así A B, recuerde que no es dirigido");
+            for (int i = 0; i < numAristas; i++) {
+                String relacion = sc.nextLine();
+                grafo.crearEnlaces(relacion.substring(0,1), relacion.substring(2,3));
+            }
         }
+        
+        
         
 //        grafo.agregarALista(new Nodo("A")); //Creacion de los nodos
 //        grafo.agregarALista(new Nodo("B")); //ojo no de sus vertices     
