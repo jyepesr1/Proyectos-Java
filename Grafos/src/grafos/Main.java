@@ -18,8 +18,8 @@ public class Main {
         
         Scanner sc= new Scanner(System.in);
         
-        System.out.println("Su Grafo es dirigido o NO dirigido, S o N");
-        String dirigido = sc.nextLine();
+        System.out.println("Digite el tipo de Grafo 'S' para simple o 'D' para dirigido");
+        String tipoGrafo = sc.nextLine();
         
         System.out.println("Ingrese el número de Nodos:");
         int numNodos = sc.nextInt();
@@ -28,23 +28,25 @@ public class Main {
         int numAristas = sc.nextInt();
         
         System.out.println("Ingrese el nombre de los nodos como letras, separados con enter");
-        for (int i = 0; i <= numNodos; i++) {
-            String cade = sc.nextLine();
+        String cade = sc.nextLine();
+        for (int i = 0; i < numNodos; i++) {
+            cade = sc.nextLine();
             grafo.agregarALista(new Nodo(cade));
-            System.out.println(cade);
         }
         
-        if(dirigido.equals("S")){
-            System.out.println("Ingrese las conexiones de los nodos, así A B");
+        if(tipoGrafo .equals("S")){
+            System.out.println("Ingrese las conexiones de los nodos, así A-B (Sin espacios)");
             for (int i = 0; i < numAristas; i++) {
                 String relacion = sc.nextLine();
-                grafo.crearEnlaces(relacion.substring(0,1), relacion.substring(2,3));
+                grafo.crearEnlace(relacion.substring(0,1), relacion.substring(2,3));
+                grafo.crearEnlace(relacion.substring(2,3), relacion.substring(0,1));
+                
             }
-        }else{
-            System.out.println("Ingrese las conexiones de los nodos, así A B, recuerde que no es dirigido");
+        }else if(tipoGrafo.equals("D")){
+            System.out.println("Ingrese las conexiones de los nodos, así A->B, recuerde que no es dirigido (Sin espacios)");
             for (int i = 0; i < numAristas; i++) {
                 String relacion = sc.nextLine();
-                grafo.crearEnlaces(relacion.substring(0,1), relacion.substring(2,3));
+                grafo.crearEnlace(relacion.substring(0,1), relacion.substring(3,4));
             }
         }
         

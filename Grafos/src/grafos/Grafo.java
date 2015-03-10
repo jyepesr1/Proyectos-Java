@@ -24,7 +24,7 @@ public class Grafo {
         listaNodo.add(nodo);//ingreso del nodo a la lista
     }
     
-    public void crearEnlaces(String nombreNodoPadre, String nombreNodoHijo){//creacion de los enlaces
+    public void crearEnlace(String nombreNodoPadre, String nombreNodoHijo){//creacion de los enlaces
         Nodo padre = buscarNodo(nombreNodoPadre); //de donde va     
         Nodo hijo = buscarNodo(nombreNodoHijo);//a donde va
         if(padre != null && hijo != null){  
@@ -44,8 +44,10 @@ public class Grafo {
     
     public void imprimirLista(){
         for (Nodo nodo : listaNodo) {
-            System.out.print((String)nodo.getDato()+"-> ");
-            nodo.imprimirNodos();
+            if((String)nodo.getDato()!=""){
+                System.out.print((String)nodo.getDato()+"-> ");
+                nodo.imprimirNodos();
+            }
         }
         
     }

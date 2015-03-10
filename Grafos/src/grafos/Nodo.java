@@ -38,7 +38,7 @@ public class Nodo {
     
      public void imprimirNodos(){
         for (Nodo nodo : listaNodos){
-            System.out.print((String)nodo.getDato()+" ");
+            if((String)nodo.getDato()!="") System.out.print((String)nodo.getDato()+" ");
         }
         
          System.out.println();
